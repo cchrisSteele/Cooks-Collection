@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './styles/global.css';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const root = document.getElementById('root');
+if (!root) throw new Error('Missing #root element in index.html');
+
+createRoot(root).render(
+  <React.StrictMode>
+    <BrowserRouter><App /></BrowserRouter>
+  </React.StrictMode>
+);
